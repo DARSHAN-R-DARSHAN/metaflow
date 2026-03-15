@@ -1,9 +1,11 @@
 import os, glob
 from setuptools import setup, find_packages
 
-with open("metaflow/version.py", mode="r") as f:
+with open("metaflow/version.py", mode="r", encoding="utf-8") as f:
     version = f.read().splitlines()[0].split("=")[1].strip(" \"'")
 
+with open("README.md", encoding="utf-8") as f:
+    long_description = f.read()
 
 def find_devtools_files():
     filepaths = []
@@ -18,7 +20,7 @@ setup(
     name="metaflow",
     version=version,
     description="Metaflow: More AI and ML, Less Engineering",
-    long_description=open("README.md").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     author="Metaflow Developers",
     author_email="help@metaflow.org",
